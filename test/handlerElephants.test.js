@@ -33,4 +33,9 @@ describe('Testes da função HandlerElephants', () => {
     const expected = ['Friday', 'Saturday', 'Sunday', 'Tuesday'];
     expect(actual).toEqual(expected);
   });
+  it('Ao chamar a função sem  parâmetro, a função deve retornar `undefined`', () => {
+    const actual = handlerElephants();
+    const expected = undefined;
+    expect(actual).toEqual(expected);
+  });
 });
