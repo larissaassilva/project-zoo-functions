@@ -6,7 +6,6 @@ describe('Testes da função HandlerElephants', () => {
   });
   it('Ao chamar a função com o parâmetro `names`, rretorna um array com a relação dos nomes de todos os elefantes', () => {
     const actual = handlerElephants('names');
-    const actual2 = handlerElephants('Names');
     const expected = ['Ilana', 'Orval', 'Bea', 'Jefferson'];
     expect(actual).toEqual(expected);
   });
