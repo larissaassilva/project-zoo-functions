@@ -1,20 +1,23 @@
 const data = require('../data/zoo_data');
 
 const countAnimals = (animal) => {
-  // const animalP = animal.species;
-  // const nameP = data.species.filter((specie) => specie.name === animalP);
-  // const uai = data.species;//.forEach(element => {
-  // //   return element.name.length;
-  // // });
-  // // const length = name.residents.find((resident) => resident.length);
-  // if (animal === undefined) {
-  //   const name = data.species.map((specie) => specie.name);
-  //   return animalP;
-  // }
-  // const result = `${animalP}:  `;
-  // return nameP.residents;
+  if (animal === undefined) {
+    return data.species.reduce((acc, { name, residents }) => {
+      acc[name] = residents.length;
+      return acc;
+    }, {});
+  }
+  if (typeof animal.sex === 'string') {
+    const animSpe = animal.species;
+    const specieU = data.species.find((specie) => specie.name === animSpe).residents;
+    const sexP = specieU.filter((specieP) => specieP.sex === 'female');
+    return sexP.length;
+  }
+  if (typeof animal.species === 'string') {
+    const animSpe = animal.species;
+    const specieZ = data.species.find((specie) => specie.name === animSpe).residents;
+    return specieZ.length;
+  }
 };
-
-console.log(countAnimals({ species: 'penguins' }));
 
 module.exports = countAnimals;
